@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+    <span class="no-select" routerLink="/">E-commerce Shop</span>
+
+    <span class="example-spacer"></span>
+
+    <div *ngIf="isAuth; then thenBlock; else elseBlock"></div>
+    <ng-template #thenBlock>
+        <app-logout></app-logout>
+        <button mat-icon-button>
+            <mat-icon>person</mat-icon>
+        </button>
+    </ng-template>
+    <ng-template #elseBlock>
+        <a mat-stroked-button routerLink="/auth/login">Login</a>
+    </ng-template>
+
+    <button mat-icon-button routerLink="/products/cart">
+        <mat-icon>shopping_cart</mat-icon>
+    </button>
+</mat-toolbar>
