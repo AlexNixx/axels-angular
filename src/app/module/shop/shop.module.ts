@@ -9,6 +9,9 @@ import { CartComponent } from './components/cart/cart.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -22,7 +25,10 @@ import { MatCardModule } from '@angular/material/card';
         ShopRoutingModule,
         MatButtonModule,
         MatCardModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        MatSnackBarModule,
+        MatDividerModule,
+        MatIconModule
     ]
 })
 export class ShopModule {}

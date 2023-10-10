@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../module/auth/services/auth.service';
-import { Subscription } from 'rxjs';
+import { map, Observable, Subscription } from 'rxjs';
+import { Select } from '@ngxs/store';
+import { CartState } from '../../module/shop/state/cart.state';
+import { CartModel } from '../../module/shop/model/cart.model';
 
 @Component({
     selector: 'app-header',
@@ -10,6 +13,8 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit {
     isAuth = false;
     authSubscription!: Subscription;
+    @Select(CartState) cart$!: Observable<CartModel>;
+    totalQty: number = 0;
 
     constructor(private authService: AuthService) {}
 
@@ -19,6 +24,14 @@ export class HeaderComponent implements OnInit {
             .subscribe({
                 next: isAuth => (this.isAuth = isAuth)
             });
+        this.cart$
+            .pipe(
+                map(({ cart }) => cart.map(item => item.quantity)),
+                map(quantityArray =>
+                    quantityArray.reduce((acc, quantity) => acc + quantity, 0)
+                )
+            )
+            .subscribe(total => (this.totalQty = total));
     }
 
     ngOnDestroy() {
