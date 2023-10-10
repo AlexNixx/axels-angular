@@ -36,11 +36,11 @@
                     <button
                         mat-stroked-button
                         (click)="decrement()"
-                        [disabled]="qty <= 1"
+                        [disabled]="quantity <= 1"
                     >
                         –
                     </button>
-                    <span class="qty">{{ qty }}</span>
+                    <span class="qty">{{ quantity }}</span>
                     <button mat-stroked-button (click)="increment()">+</button>
                 </div>
 

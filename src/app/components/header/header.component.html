@@ -15,6 +15,11 @@
     </ng-template>
 
     <button mat-icon-button routerLink="/products/cart">
-        <mat-icon>shopping_cart</mat-icon>
+        <mat-icon [matBadge]="totalQty$ | async"
+                  [matBadgeHidden]="(totalQty$ | async) === 0"
+                  matBadgeColor="accent"
+        >
+            shopping_cart
+        </mat-icon>
     </button>
 </mat-toolbar>

@@ -1,1 +1,40 @@
-<p>cart works!</p>
+<div class="page">
+
+  <div class="row" *ngIf="totalQty >= 1">
+    <div class="cart-list">
+      <mat-card class="cart-item" *ngFor="let cartProduct of cartProducts">
+        <img mat-card-image ngSrc="{{cartProduct.product.image}}" width="200"
+             height="200" alt="{{cartProduct.product.title}}">
+        <mat-card-title class="title">{{cartProduct.product.title}}</mat-card-title>
+        <mat-card-subtitle class="price">{{cartProduct.product.price | currency}}</mat-card-subtitle>
+        <mat-card-actions class="action">
+          <button mat-stroked-button (click)="decrement(cartProduct.product.id)" class="action-btn">–</button>
+          <span class="action-qty">{{cartProduct.quantity}}</span>
+          <button mat-stroked-button (click)="increment(cartProduct.product.id)" class="action-btn">+</button>
+        </mat-card-actions>
+        <mat-card-footer class="cart-footer">
+          <span class="total-price">{{cartProduct.quantity * cartProduct.product.price | currency}}</span>
+          <button class="remove-btn" mat-icon-button (click)="remove(cartProduct.product.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-footer>
+      </mat-card>
+      <button color="primary"
+              mat-flat-button (click)="removeAllItem()" >Clear Cart
+      </button>
+    </div>
+    <mat-card class="purchase">
+      <h4>Total Items Quantity: <b>{{totalQty}}</b></h4>
+      <h4>Total: <b>{{totalPrice | currency}}</b></h4>
+      <button color="primary"
+              mat-flat-button (click)="purchase()" class="purchase-btn">Purchase
+      </button>
+    </mat-card>
+  </div>
+
+  <div class="not-found" *ngIf="totalQty < 1">
+    <h1>Item not found in shopping cart 😔</h1>
+    <a mat-stroked-button routerLink="/products">Continue shopping</a>
+  </div>
+
+</div>
