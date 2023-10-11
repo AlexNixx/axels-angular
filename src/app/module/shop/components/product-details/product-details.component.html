@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="page">
+        <div class="image">
+            <img
+                ngSrc="{{ product.image }}"
+                alt="{{ product.title }}"
+                width="500"
+                height="500"
+            />
+        </div>
+        <div class="content">
+            <h2 class="title">{{ product.title }}</h2>
+            <h4 class="price">
+                Price: <b>{{ product.price | currency }}</b>
+            </h4>
+            <div class="specification">
+                <h4 class="spec-title">Specifications:</h4>
+                <ul class="list">
+                    <li>
+                        Operating System:
+                        {{ product.configure.OperatingSystem }}
+                    </li>
+                    <li>Numbers of SIM: {{ product.configure.NumbersSIM }}</li>
+                    <li>Screen Type: {{ product.configure.ScreenType }}</li>
+                    <li>
+                        Screen Diagonal: {{ product.configure.ScreenDiagonal }}
+                    </li>
+                    <li>
+                        Screen Resolution:
+                        {{ product.configure.ScreenResolution }}
+                    </li>
+                </ul>
+            </div>
+            <div class="actions">
+                <div class="qty-container">
+                    <button
+                        mat-stroked-button
+                        (click)="decrement()"
+                        [disabled]="qty <= 1"
+                    >
+                        –
+                    </button>
+                    <span class="qty">{{ qty }}</span>
+                    <button mat-stroked-button (click)="increment()">+</button>
+                </div>
+
+                <button
+                    class="add-button"
+                    type="button"
+                    color="primary"
+                    mat-flat-button
+                    (click)="addToCart()"
+                >
+                    Add to cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

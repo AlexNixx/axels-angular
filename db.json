@@ -1,0 +1,82 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Galaxy S23 S911B",
+      "price": 1087,
+      "image": "https://hotline.ua/img/tx/370/3708765005.jpg",
+      "configure": {
+        "OperatingSystem": "Android 13",
+        "NumbersSIM": "2 SIM",
+        "ScreenType": "Dynamic AMOLED 2X",
+        "ScreenDiagonal": "6,1\"",
+        "ScreenResolution": "2340 х 1080"
+      }
+    },
+    {
+      "id": 2,
+      "title": "iPhone 14 Pro 128GB Gold",
+      "price": 1440,
+      "image": "https://hotline.ua/img/tx/343/3437064555.jpg",
+      "configure": {
+        "OperatingSystem": "iOS 16",
+        "NumbersSIM": "2 SIM",
+        "ScreenType": "OLED",
+        "ScreenDiagonal": "6,1\"",
+        "ScreenResolution": "2556 x 1179"
+      }
+    },
+    {
+      "id": 3,
+      "title": "iPhone 14 Pro 128GB Deep Purple",
+      "price": 1440,
+      "image": "https://hotline.ua/img/tx/343/3437063845.jpg",
+      "configure": {
+        "OperatingSystem": "iOS 16",
+        "NumbersSIM": "2 SIM",
+        "ScreenType": "OLED",
+        "ScreenDiagonal": "6,1\"",
+        "ScreenResolution": "2556 x 1179"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Galaxy S23 S911B",
+      "price": 1087,
+      "image": "https://hotline.ua/img/tx/370/3708765005.jpg",
+      "configure": {
+        "OperatingSystem": "Android 13",
+        "NumbersSIM": "2 SIM",
+        "ScreenType": "Dynamic AMOLED 2X",
+        "ScreenDiagonal": "6,1\"",
+        "ScreenResolution": "2340 х 1080"
+      }
+    },
+    {
+      "id": 5,
+      "title": "iPhone 14 Pro 128GB Gold",
+      "price": 1440,
+      "image": "https://hotline.ua/img/tx/343/3437064555.jpg",
+      "configure": {
+        "OperatingSystem": "iOS 16",
+        "NumbersSIM": "2 SIM",
+        "ScreenType": "OLED",
+        "ScreenDiagonal": "6,1\"",
+        "ScreenResolution": "2556 x 1179"
+      }
+    },
+    {
+      "id": 6,
+      "title": "iPhone 14 Pro 128GB Deep Purple",
+      "price": 1440,
+      "image": "https://hotline.ua/img/tx/343/3437063845.jpg",
+      "configure": {
+        "OperatingSystem": "iOS 16",
+        "NumbersSIM": "2 SIM",
+        "ScreenType": "OLED",
+        "ScreenDiagonal": "6,1\"",
+        "ScreenResolution": "2556 x 1179"
+      }
+    }
+  ]
+}
