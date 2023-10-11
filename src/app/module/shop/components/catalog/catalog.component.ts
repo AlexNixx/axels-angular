@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShopService } from '../../services/shop.service';
+import { ProductService } from '../../services/product.service';
 import { Product } from '../../model/product.model';
 import { Subscription } from 'rxjs';
 
@@ -12,10 +12,10 @@ export class CatalogComponent implements OnInit {
     public products: Product[] = [];
     private productsSubscription!: Subscription;
 
-    constructor(private shopService: ShopService) {}
+    constructor(private productService: ProductService) {}
 
     ngOnInit(): void {
-        this.productsSubscription = this.shopService
+        this.productsSubscription = this.productService
             .getProducts()
             .subscribe(products => (this.products = products));
     }

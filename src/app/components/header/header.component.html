@@ -14,11 +14,15 @@
     <a mat-stroked-button routerLink="/auth/login">Login</a>
   </ng-template>
 
-  <mat-icon [matBadge]="totalQty"
-            [matBadgeHidden]="totalQty === 0"
-            matBadgeColor="accent"
-            routerLink="/products/cart"
-  >
-    shopping_cart
-  </mat-icon>
+  <button mat-icon-button
+          routerLink="/products/cart">
+    <mat-icon
+      [matBadge]="totalQty"
+      [matBadgeHidden]="totalQty === 0"
+      matBadgeColor="accent"
+    >
+      shopping_cart
+    </mat-icon>
+  </button>
+
 </mat-toolbar>

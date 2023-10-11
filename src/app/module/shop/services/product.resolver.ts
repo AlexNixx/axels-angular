@@ -2,15 +2,15 @@ import { ResolveFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { catchError } from 'rxjs';
 
-import { ShopService } from './shop.service';
+import { ProductService } from './product.service';
 
 export const productResolver: ResolveFn<any> = (
     route,
     state,
-    shopServices: ShopService = inject(ShopService),
+    productService: ProductService = inject(ProductService),
     router: Router = inject(Router)
 ) => {
-    return shopServices
+    return productService
         .getProduct(route.paramMap.get('id')!)
         .pipe(catchError(() => router.navigate(['/'])));
 };

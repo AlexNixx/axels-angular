@@ -4,6 +4,7 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartComponent } from './components/cart/cart.component';
 import { productResolver } from './services/product.resolver';
+import { authGuard } from '../auth/guards/auth.guard';
 
 const routes: Routes = [
     {
@@ -13,7 +14,8 @@ const routes: Routes = [
     {
         path: 'product/:id',
         component: ProductDetailsComponent,
-        resolve: { product: productResolver }
+        resolve: { product: productResolver },
+        canActivate: [authGuard]
     },
     { path: 'cart', component: CartComponent },
     { path: '**', redirectTo: 'catalog', pathMatch: 'full' }
