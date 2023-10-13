@@ -1,0 +1,137 @@
+<div class="page">
+    <div class="row">
+        <div class="product-list">
+            <mat-card
+                class="product-item"
+                *ngFor="let cartProduct of cartProducts"
+            >
+                <img
+                    mat-card-image
+                    ngSrc="{{ cartProduct.product.image }}"
+                    width="135"
+                    height="135"
+                    class="product-img"
+                    alt="{{ cartProduct.product.title }}"
+                />
+                <mat-card-title class="title">{{
+                    cartProduct.product.title
+                }}</mat-card-title>
+                <mat-card-subtitle class="qty"
+                    >{{ cartProduct.quantity }} Qty</mat-card-subtitle
+                >
+                <mat-card-footer class="cart-footer">
+                    <span class="total-price">{{
+                        cartProduct.quantity * cartProduct.product.price
+                            | currency
+                    }}</span>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+
+        <div class="column">
+            <div class="summary">
+                <h3>
+                    Total price: <b>{{ totalPrice | currency }}</b>
+                </h3>
+                <h3>
+                    Total item: <b>{{ totalQty }}</b>
+                </h3>
+            </div>
+
+            <form
+                class="form"
+                [formGroup]="checkoutForm"
+                (ngSubmit)="checkoutSubmit()"
+            >
+                <mat-form-field appearance="outline">
+                    <mat-label>First name</mat-label>
+                    <input matInput formControlName="firstName" />
+                    <mat-error
+                        *ngIf="
+                            this.checkoutForm
+                                .get('firstName')
+                                ?.hasError('required')
+                        "
+                    >
+                        First name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last name</mat-label>
+                    <input matInput formControlName="lastName" />
+                    <mat-error
+                        *ngIf="
+                            this.checkoutForm
+                                .get('lastName')
+                                ?.hasError('required')
+                        "
+                    >
+                        Last name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Country</mat-label>
+                    <input matInput formControlName="country" />
+                    <mat-error
+                        *ngIf="
+                            this.checkoutForm
+                                .get('country')
+                                ?.hasError('required')
+                        "
+                    >
+                        Country is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input matInput formControlName="city" />
+                    <mat-error
+                        *ngIf="
+                            this.checkoutForm.get('city')?.hasError('required')
+                        "
+                    >
+                        City is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address" />
+                    <mat-error
+                        *ngIf="
+                            this.checkoutForm
+                                .get('address')
+                                ?.hasError('required')
+                        "
+                    >
+                        Address is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Post Code</mat-label>
+                    <input matInput formControlName="code" />
+                    <mat-error
+                        *ngIf="
+                            this.checkoutForm.get('code')?.hasError('required')
+                        "
+                    >
+                        Post Code is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <button
+                    [disabled]="checkoutForm.invalid"
+                    mat-raised-button
+                    color="primary"
+                    class="button"
+                    type="submit"
+                >
+                    Create Order
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

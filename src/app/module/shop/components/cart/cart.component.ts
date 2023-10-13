@@ -22,6 +22,8 @@ export class CartComponent implements OnInit {
     public totalPrice: number = 0;
     public totalQty: number = 0;
 
+    constructor(private store: Store) {}
+
     ngOnInit(): void {
         this.cart$.pipe(filter(state => !!state)).subscribe(cartState => {
             this.cartProducts = cartState.cart;
@@ -36,8 +38,6 @@ export class CartComponent implements OnInit {
             );
         });
     }
-
-    constructor(private store: Store) {}
 
     decrement(id: number | string) {
         this.store.dispatch(new DecrementQty(id));

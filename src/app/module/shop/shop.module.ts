@@ -12,13 +12,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     declarations: [
         CatalogComponent,
         ProductComponent,
         ProductDetailsComponent,
-        CartComponent
+        CartComponent,
+        CheckoutComponent
     ],
     imports: [
         CommonModule,
@@ -28,7 +33,11 @@ import { MatIconModule } from '@angular/material/icon';
         NgOptimizedImage,
         MatSnackBarModule,
         MatDividerModule,
-        MatIconModule
+        MatIconModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule
     ]
 })
 export class ShopModule {}

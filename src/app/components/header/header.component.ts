@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../module/auth/services/auth.service';
 import { map, Observable, Subscription } from 'rxjs';
 import { Select } from '@ngxs/store';
@@ -10,7 +10,7 @@ import { CartModel } from '../../module/shop/model/cart.model';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
     isAuth = false;
     authSubscription!: Subscription;
     @Select(CartState) cart$!: Observable<CartModel>;
@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
             .subscribe(total => (this.totalQty = total));
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         if (this.authSubscription) this.authSubscription.unsubscribe();
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../model/product.model';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
     templateUrl: './catalog.component.html',
     styleUrls: ['./catalog.component.scss']
 })
-export class CatalogComponent implements OnInit {
+export class CatalogComponent implements OnInit, OnDestroy {
     public products: Product[] = [];
     private productsSubscription!: Subscription;
 
